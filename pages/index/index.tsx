@@ -42,7 +42,7 @@ const ColorGridPage = (): React.ReactElement => {
                 setFilter(e);
               }}
               checked={saturation}
-              onCheck={(e: any): void => {
+              onCheck={(e: boolean): void => {
                 setSaturation(e);
               }}
             />
