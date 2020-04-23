@@ -6,6 +6,9 @@ import 'styles/global.scss';
 
 import GlobalContextProvider from 'context/GlobalContextProvider';
 
+// started this project by using next.js template
+// please refer to pages/index.jsx for base dev component
+
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
   // every single page in your application. This disables the ability to

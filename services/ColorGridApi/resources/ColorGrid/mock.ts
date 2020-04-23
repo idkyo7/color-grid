@@ -1,7 +1,9 @@
 import MockAdapter from 'axios-mock-adapter';
 import faker from 'faker';
 
-import {Color, GetColorResponse } from './types';
+import { Color, GetColorResponse } from './types';
+
+// this file for creatin new random api data for color item that will be sent through index page
 
 const colorName = [
   'Red',
@@ -21,21 +23,18 @@ const colorName = [
 ];
 
 export const generateColor = (): Color => {
-  const name = faker.random.arrayElement(colorName)
-  const id = faker.random.number({min: 1, max: 999})
-  const saturation = faker.random.boolean()
+  const name = faker.random.arrayElement(colorName);
+  const id = faker.random.number({ min: 1, max: 999 });
+  const saturation = faker.random.boolean();
 
   return {
     id,
     colorName: name,
-    saturation
-  }
-}
-
-
+    saturation,
+  };
+};
 
 const productMock = (mock: InstanceType<typeof MockAdapter>): void => {
-
   mock.onGet('/colors').reply(() => {
     const limit = 20;
 

@@ -8,19 +8,26 @@ import colorGridApi from 'services/ColorGridApi';
 import styles from './styles.scss';
 
 const ColorGridPage = (): React.ReactElement => {
+  // main state for fetching data from api (i use mock api anyway)
+  // i fetch data from mock api by using useApi hooks that i created before for better mini and reusable code
   const { sync: colorSync, state: colorData } = useApi(colorGridApi.colorApi.getColor);
+  // for filtering state in input text component
   const [filter, setFilter] = React.useState<string>('');
+  // for saturation filter
   const [saturation, setSaturation] = React.useState<boolean>(false);
 
+  // main function to fetch api data by using callback
   const loadColorData = React.useCallback((): void => {
     colorSync();
   }, [colorSync]);
 
+  // restart current cycle component if loadcolordata function have some value changes
   React.useEffect(() => {
     loadColorData();
   }, [loadColorData]);
 
   return (
+    // use Layout base component for container
     <Layout>
       <div className={styles.container}>
         <img
@@ -35,6 +42,7 @@ const ColorGridPage = (): React.ReactElement => {
         />
         <Layout.Content>
           <div className={styles.inside}>
+            {/* this component for filtering data control */}
             <ColorFilters
               page="search"
               filter={filter === ''}
@@ -46,6 +54,7 @@ const ColorGridPage = (): React.ReactElement => {
                 setSaturation(e);
               }}
             />
+            {/* this below component to show what currently data that showed up */}
             <ColorListGrid
               loading={colorData.loading}
               error={colorData.error}

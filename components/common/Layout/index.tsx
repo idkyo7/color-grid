@@ -6,17 +6,10 @@ type LayoutProps = React.HTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
 };
 
-const Layout = ({
-  children,
-}: LayoutProps): React.ReactElement => {
+const Layout = ({ children }: LayoutProps): React.ReactElement => {
+  const pageContent = children;
 
-  let pageContent = children;
-
-  return (
-    <div className={styles.container}>
-      {pageContent}
-    </div>
-  );
+  return <div className={styles.container}>{pageContent}</div>;
 };
 
 // eslint-disable-next-line react/display-name
