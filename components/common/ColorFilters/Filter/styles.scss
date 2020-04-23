@@ -1,0 +1,59 @@
+@import 'styles/colors.scss';
+@import 'styles/breakpoints.scss';
+
+.filterContainer {
+  width: 100%;
+  position: relative;
+
+  margin-top: 0.5rem;
+
+  .optionTitle {
+    border: none;
+    background: none;
+    padding: 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    color: $greyish;
+    height: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: transparent;
+
+    &:focus {
+      outline: none;
+      color: $black;
+    }
+  }
+
+  .noTitle {
+    display: none;
+  }
+
+  .optionContent {
+    margin-top: -0.5rem;
+
+    .lilSeparator {
+      width: 20px;
+      height: 4px;
+      margin: 7px 0;
+      background-color: #019447;
+      border-radius: 4px;
+    }
+
+    .filterContent {
+      display: grid;
+      gap: 0.5rem;
+    }
+  }
+
+  .scrollY {
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+  }
+}

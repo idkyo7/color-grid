@@ -1,0 +1,61 @@
+@import 'styles/colors.scss';
+
+.radioFilterContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 1.5rem;
+  cursor: pointer;
+  font-size: 14px;
+  color: $greyish;
+  user-select: none;
+  height: 18px; //Checkmark height + border-top + border-bottom
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 1px solid $emerald;
+    border-radius: 50%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 4px;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      background-color: white;
+      border-radius: 50%;
+    }
+  }
+
+  /* On mouse-over, add background color */
+  &:hover input ~ .checkmark {
+    background-color: $emerald;
+  }
+
+  /* When the checkbox is checked, add a background */
+  input:checked ~ .checkmark {
+    background-color: $emerald;
+  }
+
+  /* Show the checkmark when checked */
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+}

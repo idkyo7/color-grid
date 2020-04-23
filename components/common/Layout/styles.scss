@@ -1,0 +1,41 @@
+@import 'styles/breakpoints.scss';
+@import 'styles/colors.scss';
+
+.container {
+  min-width: 300px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentContainer {
+  // margin: 0 auto;
+  max-width: 1600px;
+  padding-right: 80px;
+  padding-left: 80px;
+
+  @include mobileOnly {
+    padding: 0 2rem;
+  }
+
+  @include smallOnly {
+    padding: 0 1rem;
+  }
+}
+
+.loginGuardContainer {
+  padding: 4rem 0;
+  flex: 1;
+  text-align: center;
+}
+
+.loginGuardContainer a {
+  display: inline-block;
+  margin-top: .5rem;
+  text-decoration: none;
+  color: $green;
+}
+
+.loginGuardContainer a:hover {
+  text-decoration: underline;
+}

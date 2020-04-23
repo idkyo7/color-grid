@@ -1,0 +1,205 @@
+@import 'styles/colors.scss';
+@import 'styles/breakpoints.scss';
+
+.container {
+  width: 100%;
+  position: relative;
+
+  .searchText {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #dedbd6;
+    border-radius: .5rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+
+  .headImg {
+    width: auto;
+    height: 40px;
+    max-width: 40px;
+    margin-bottom: 10px;
+  }
+
+  .filterTitle {
+    display: flex;
+    flex-direction: column;
+
+    .filterTitleText {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .searchTerm {
+      color: $green;
+    }
+  }
+
+  .separator {
+    width: 20px;
+    height: 4px;
+    margin: 17px 0;
+    background-color: #019447;
+    border-radius: 4px;
+  }
+
+  .horizontalCheckboxesOnMobile {
+    display: grid;
+    gap: 0.5rem;
+
+    @include mobileOnly {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .verticalCheckboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .rangeUnitsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .filterActionsContainer {
+    display: grid;
+    gap: 0.5rem;
+
+    margin-top: 1rem;
+
+    .buttonClear {
+      background-color: verygrey;
+      color: $grey;
+      font-size: 12px;
+      height: 25px;
+      padding: 0;
+      border: 0;
+
+      &:focus {
+        outline: #ffffff auto 3px;
+      }
+
+      &:hover {
+        border-color: 1px solid $greyish;
+        transition: 0.5s ease;
+        opacity: 0.8;
+      }
+    }
+
+    .buttonFilter {
+      background-color: $orange;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      height: 25px;
+      padding: 0;
+      border: 0;
+
+      &:focus {
+        outline: #ffffff auto 3px;
+      }
+
+      &:hover {
+        border-color: 1px solid $greyish;
+        transition: 0.5s ease;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .buttonFilterToggler {
+    display: none;
+
+    @include mobileOnly {
+      position: fixed;
+      z-index: 101;
+      bottom: 5rem;
+      right: 16px;
+      border: 1px solid #efedee;
+      background-color: #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px yellowgreen;
+    }
+  }
+
+  .filterSideDrawer {
+    @include mobileOnly {
+      position: fixed;
+      z-index: 101;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      width: 35vh;
+      background: white;
+      padding: 0;
+      overflow-x: hidden;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+
+      .filterContent {
+        height: max-content;
+        overflow: scroll;
+        transition: 0.5s ease;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    .filterPosition {
+      @include mobileOnly {
+        max-height: 75vh;
+        padding-top: 110px;
+      }
+      @include smallOnly {
+        max-height: 75vh;
+        padding-top: 110px;
+      }
+    }
+
+    .fixedFilterPosition {
+      @include mobileOnly {
+        max-height: 85vh;
+        padding-top: 0;
+      }
+      @include smallOnly {
+        max-height: 85vh;
+        padding-top: 0;
+      }
+    }
+  }
+  .drawerOpen {
+    transform: translateX(0);
+  }
+
+  .filterOverlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #4a4a4a;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    opacity: 0.78;
+  }
+}

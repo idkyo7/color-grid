@@ -1,0 +1,74 @@
+@import 'styles/colors.scss';
+
+.checkboxFilterContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 1.5rem;
+  cursor: pointer;
+
+  user-select: none;
+  height: 17px; //Checkmark height + border-top + border-bottom
+
+  .labelText {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $greyish;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 100%;
+  }
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border: 1px solid $emerald;
+    border-radius: 3px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 4px;
+      top: 0;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
+
+  /* On mouse-over, add background color */
+  &:hover input ~ .checkmark {
+    background-color: $emerald;
+  }
+
+  /* When the checkbox is checked, add a background */
+  input:checked ~ .checkmark {
+    background-color: $emerald;
+  }
+
+  /* Show the checkmark when checked */
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+}

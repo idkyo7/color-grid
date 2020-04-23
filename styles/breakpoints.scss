@@ -1,0 +1,24 @@
+$breakpointMobile: 835px; // iPad, iPad Pro, Nexus 10
+$breakpointSmall: 415px; //iPhone SE, Pixel, Nexus 5X
+
+@mixin desktopOnly {
+  @media (min-width: #{$breakpointMobile + 1px}) {
+    @content;
+  }
+}
+
+@mixin mobileOnly {
+  @media (max-width: #{$breakpointMobile}) {
+    @content;
+  }
+}
+
+@mixin smallOnly {
+  @media (max-width: #{$breakpointSmall}) {
+    @content;
+  }
+}
+
+:export {
+  mobile: $breakpointMobile;
+}

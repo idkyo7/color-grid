@@ -1,0 +1,48 @@
+stages:
+  - test
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+default:
+  image: node:lts
+
+Lint:
+  stage: test
+  script:
+    - npm install
+    - npm run lint .
+  only:
+    - merge_requests
+    - master
+
+# Build Staging:
+#   stage: build
+#   script:
+#     - npm install
+#     - npm run build
+#   artifacts:
+#     paths:
+#       - .next
+#   only:
+#     - master
+#
+# Deploy Staging:
+#   stage: deploy
+#   environment: staging
+#   before_script:
+#     - apt-get update -qq
+#     - apt-get install -qq git
+#     # Setup SSH deploy keys
+#     - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+#     - eval $(ssh-agent -s)
+#     - ssh-add <(echo "$SSH_PRIVATE_KEY_STG")
+#     - mkdir -p ~/.ssh
+#     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+#   script:
+#     - ls
+#   only:
+#     - master

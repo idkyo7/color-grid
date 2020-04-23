@@ -1,0 +1,49 @@
+@import 'styles/colors.scss';
+
+.container {
+  // margin-bottom: 1rem;
+  display: block;
+  margin-bottom: 17px;
+
+  .label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    text-align: left;
+    font-size: 14px;
+    color: $black;
+  }
+
+  .textField {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid #dedbd6;
+    border-radius: .5rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+    &:focus {
+      border-color: #35a238;
+      outline: none;
+      box-shadow: 0 0 3px #35a238;
+    }
+
+    &:hover {
+      border-color: #35a238;
+      transition: 0.5s ease;
+    }
+  }
+
+  .error {
+    color: $red;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}

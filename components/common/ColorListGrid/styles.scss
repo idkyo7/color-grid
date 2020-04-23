@@ -1,0 +1,261 @@
+@import 'styles/colors.scss';
+@import 'styles/breakpoints.scss';
+
+.colorListGridContainer {
+  background-color: $white;
+  border-radius: 4px;
+  padding: 1rem;
+
+  @include smallOnly {
+    margin: 0 -16px;
+    padding: 1rem 5px;
+  }
+
+  .noDataContainer {
+    width: 100%;
+    height: 100%;
+    min-height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .searchTerm {
+      font-weight: bold;
+    }
+  }
+
+  .sorterContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-bottom: 2rem;
+    padding-right: 1rem;
+
+    .label {
+      font-size: 11px;
+      color: $grey;
+      margin-right: 7px;
+    }
+
+    .formControl {
+      font-size: 11px;
+      color: $grey;
+      background-color: $greyLight;
+      border: none;
+      border-radius: 10px;
+
+      height: 20px;
+      width: 121px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg stroke='green' fill='green' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' enable-background='new 0 0 50 50' ml-update='aware'><path d='M25 32.4l-9.7-9.7 1.4-1.4 8.3 8.3 8.3-8.3 1.4 1.4z'/></svg>");
+      background-repeat: no-repeat;
+      background-position-x: 97%;
+      padding-left: 0.8rem;
+      padding-right: 1rem;
+    }
+  }
+
+  .productContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 200px));
+
+    @include mobileOnly {
+      grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+    }
+    @include smallOnly {
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    }
+
+    .productItemContainer {
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      max-height: 500px;
+      padding: 0 1rem;
+      cursor: pointer;
+
+      @include smallOnly {
+        padding: 0;
+      }
+
+      &:hover {
+        box-shadow: 0px 0px 7px #e6e2df;
+        transition: 0.5s ease;
+      }
+
+      & .discContainer {
+        text-align: right;
+        bottom: -22px;
+        position: relative;
+
+        & .content {
+          font-size: 13px;
+          color: white;
+          background: $red;
+          padding: 5px;
+        }
+      }
+
+      & img {
+        width: 100%;
+        height: auto;
+      }
+
+      & .iconContainer {
+        & .icon {
+          width: 20px;
+          height: auto;
+          vertical-align: bottom;
+        }
+        & .desc {
+          font-size: 12px;
+          vertical-align: bottom;
+          margin-left: 7px;
+          color: #9b9b9b;
+        }
+      }
+
+      & .name {
+        margin: 10px 0 5px;
+        color: $black;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      & .size {
+        margin: 5px 0;
+        color: $greyText;
+        font-size: 13px;
+      }
+
+      & .brand {
+        margin: 5px 0;
+        color: $greyText;
+        font-size: 13px;
+      }
+
+      & .disc {
+        margin: 5px 0 0;
+        color: $grey;
+        font-size: 11px;
+        text-decoration: line-through;
+      }
+
+      & .grocery {
+        margin: 5px 0;
+        color: $grey;
+        font-size: 11px;
+      }
+
+      & .priceContainer {
+        display: flex;
+        vertical-align: middle;
+
+        & .icon {
+          width: 8px;
+          height: 14px;
+          margin-right: 5px;
+          margin-top: 5px;
+        }
+
+        & .price {
+          margin: 5px 0;
+          color: $red;
+          font-size: 15px;
+        }
+      }
+
+      & .toolsContainer {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        justify-content: space-between;
+        align-items: center;
+
+        & .textLeft {
+          flex: 1;
+          & span {
+            background: #fdebd9;
+            padding: 3px;
+            border-radius: 3px;
+            font-size: 11px;
+          }
+        }
+
+        & .textRight {
+          flex: 1;
+
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          & img {
+            width: 22px;
+            height: auto;
+            margin-right: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .buttonShowMoreContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+
+    .buttonShowMore {
+      min-width: 195px;
+      height: 36px;
+      background-color: $orange;
+      color: $white;
+      border: none;
+      border-radius: 14px;
+      font-size: 13px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+    .paginationLink {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      height: 3rem;
+      width: 3rem;
+      background-color: transparent;
+      color: inherit;
+
+      @include mobileOnly {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+    }
+
+    .paginationItem {
+      margin: 0 0.5rem;
+      color: $greyish;
+    }
+    .paginationActive {
+      background-color: $green;
+      color: white !important;
+    }
+  }
+
+  .textCenter {
+    text-align: center;
+  }
+}
